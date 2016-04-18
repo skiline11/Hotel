@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Kierunek
 {
     public enum Kierunek
@@ -5,7 +7,7 @@ public class Kierunek
         północ, południe, wschód, zachód;
     }
 
-    private Random rand = new Random();
+    Random rand = new Random();
 
     public Kierunek losuj_kierunek()
     {
