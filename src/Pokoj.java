@@ -36,9 +36,9 @@ public class Pokoj
 */        this.numer = losuj(min_numer, max_numer);
         this.ilu_osobowy = losuj(min_osob, max_osob);
         this.cena = losuj(min_cena, max_cena);
-        this.jaki_styl = losuj_styl();
-        this.jaka_kolorystyka = losuj_kolorystyke();
-        this.jaki_kierunek = losuj_kierunek();
+        this.jaki_styl = jaki_styl.losuj_styl();
+        this.jaka_kolorystyka = jaka_kolorystyka.losuj_kolorystyke();
+        this.jaki_kierunek = jaki_kierunek.losuj_kierunek();
         this.dostęp_do_internetu = losuj_dostęp_do_internetu();
     }
 }

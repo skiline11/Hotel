@@ -26,4 +26,16 @@ public enum Kolorystyka
         }
         return this.jasnozielony; // żeby kompilator się nie pluł że nic nie zwracam
     }
+
+    public Kolorystyka ustaw_kolorystyke(String jaka_kolorystyka)
+    {
+        if(jaka_kolorystyka.equals("szary")) return this.szary;
+        else if(jaka_kolorystyka.equals("stalowy")) return this.stalowy;
+        else if(jaka_kolorystyka.equals("purpurowy")) return this.purpurowy;
+        else if(jaka_kolorystyka.equals("morski")) return this.morski;
+        else if(jaka_kolorystyka.equals("seledynowy")) return this.seledynowy;
+        else if(jaka_kolorystyka.equals("jasnozielony")) return this.jasnozielony;
+        else return this.jasnozielony;
+    }
+
 }

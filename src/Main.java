@@ -34,7 +34,7 @@ public class Main
 
     private void stworz_liste_zamowien()
     {
-
+        zamowienia = new Pokoj[];
     }
 
 }

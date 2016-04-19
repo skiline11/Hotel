@@ -17,7 +17,7 @@ public class Hotel extends Main
         recepcjonisci[numer] = new Recepcjonista(imie, nazwisko, strategia);
     }
 
-    public void akceptuj(Zamowienie[] zamowienie, Pokoj[] pokoj, Recepcjonista[] recepcjonisci)
+    public void akceptuj(Zamowienie[] zamowienia, Pokoj[] pokoj, Recepcjonista[] recepcjonisci)
     {
 
     }
