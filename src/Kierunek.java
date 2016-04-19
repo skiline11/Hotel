@@ -1,28 +1,25 @@
 import java.util.Random;
 
-public class Kierunek
+public enum Kierunek
 {
-    public enum Kierunek
-    {
-        północ, południe, wschód, zachód;
-    }
+    północ, południe, wschód, zachód;
 
-    Random rand = new Random();
-
+    private Random rand = new Random();
     public Kierunek losuj_kierunek()
     {
+
         int wynik_losowania = rand.nextInt(4);
         switch(wynik_losowania)
         {
             case(0) :
-                return Kierunek.północ;
+                return this.północ;
             case(1) :
-                return Kierunek.południe;
+                return this.południe;
             case(2) :
-                return Kierunek.wschód;
+                return this.wschód;
             case(3) :
-                return Kierunek.zachód;
+                return this.zachód;
         }
-        return Kierunek.zachód; // żeby kompilator się nie pluł że nic nie zwracam
+        return this.zachód; // żeby kompilator się nie pluł że nic nie zwracam
     }
 }

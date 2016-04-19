@@ -1,11 +1,8 @@
 import java.util.Random;
 
-public class Kolorystyka
+public enum Kolorystyka
 {
-    public enum Kolorystyka
-    {
-        szary, stalowy, purpurowy, morski, seledynowy, jasnozielony;
-    }
+    szary, stalowy, purpurowy, morski, seledynowy, jasnozielony;
 
     private Random rand = new Random();
 
@@ -15,19 +12,18 @@ public class Kolorystyka
         switch(wynik_losowania)
         {
             case(0) :
-                return Kolorystyka.szary;
+                return this.szary;
             case(1) :
-                return Kolorystyka.stalowy;
+                return this.stalowy;
             case(2) :
-                return Kolorystyka.purpurowy;
+                return this.purpurowy;
             case(3) :
-                return Kolorystyka.morski;
+                return this.morski;
             case(4) :
-                return Kolorystyka.seledynowy;
+                return this.seledynowy;
             case(5) :
-                return Kolorystyka.jasnozielony;
+                return this.jasnozielony;
         }
-        return Kolorystyka.jasnozielony; // żeby kompilator się nie pluł że nic nie zwracam
+        return this.jasnozielony; // żeby kompilator się nie pluł że nic nie zwracam
     }
-
 }

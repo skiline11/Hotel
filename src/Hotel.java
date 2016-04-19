@@ -1,14 +1,25 @@
-public class Hotel
-{
-    public static final int ilosc_pokoi = 10;
-    public static final int ilosc_recepcjonistow = 5;
+import com.sun.xml.internal.bind.v2.TODO;
 
+public class Hotel extends Main
+{
     public Hotel(Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
-
+        for(int iterator = 0; iterator < ilosc_pokoi; iterator++)
+        {
+            pokoje[iterator] = new Pokoj();
+        }
+        dodaj_do_recepcjonistow("Jan", "Nowak", "perfekcjonistyczna", recepcjonisci, 0);
+        dodaj_do_recepcjonistow("Tomasz", "Kowalski", "losowa", recepcjonisci, 1);
+        dodaj_do_recepcjonistow("Kacper", "Dob", "złośliwa", recepcjonisci, 2);
+        dodaj_do_recepcjonistow("Adam", "Pierwszy", "aproksymacyjna", recepcjonisci, 3);
     }
 
-    public void akceptuj(Zamowienia[] zamowienie, Pokoj[] pokoj, Recepcjonisci[] recepcjonista)
+    private void dodaj_do_recepcjonistow(String imie, String nazwisko, String strategia, Recepcjonista[] recepcjonisci, int numer)
+    {
+        recepcjonisci[numer] = new Recepcjonista(imie, nazwisko, strategia);
+    }
+
+    public void akceptuj(Zamowienia[] zamowienie, Pokoj[] pokoj, Recepcjonista[] recepcjonisci)
     {
 
     }

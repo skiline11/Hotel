@@ -1,30 +1,28 @@
 import java.util.Random;
 
-public class Styl
+public enum Styl
 {
-    public enum Styl
-    {
-        orientalny, morski, nowoczesny, rustykalny, secesyjny;
-    }
+    orientalny, morski, nowoczesny, rustykalny, secesyjny;
 
-    private Random rand = new Random();
-
+    public Random rand = new Random();
     public Styl losuj_styl()
     {
         int wynik_losowania = rand.nextInt(5);
         switch(wynik_losowania)
         {
-            case(0) :
-                return Styl.orientalny;
-            case(1) :
-                return Styl.morski;
-            case(2) :
-                return Styl.nowoczesny;
-            case(3) :
-                return Styl.rustykalny;
-            case(4) :
-                return Styl.secesyjny;
+            case (0):
+                return this.orientalny;
+            case (1):
+                return this.morski;
+            case (2):
+                return this.nowoczesny;
+            case (3):
+                return this.rustykalny;
+            case (4):
+                return this.secesyjny;
         }
-        return Styl.secesyjny; // żeby kompilator się nie pluł że nic nie zwracam
+        return this.secesyjny; // żeby kompilator się nie pluł że nic nie zwracam
     }
 }
+
+
