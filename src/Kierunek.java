@@ -22,4 +22,13 @@ public enum Kierunek
         }
         return this.zachód; // żeby kompilator się nie pluł że nic nie zwracam
     }
+
+    public Kierunek ustaw_kierunek(String jaki_kierunek)
+    {
+        if(jaki_kierunek.equals("północ")) return this.północ;
+        else if(jaki_kierunek.equals("południe")) return this.południe;
+        else if(jaki_kierunek.equals("wschód")) return this.wschód;
+        else if(jaki_kierunek.equals("zachód")) return this.zachód;
+        else return this.zachód;
+    }
 }
