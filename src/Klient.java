@@ -1,16 +1,11 @@
-public class Klient
+public abstract class Klient extends Osoba
 {
-    private String imie, nazwisko, strategia_wyboru;
-
-    public Klient(String imie, String nazwisko, String strategia_wyboru)
-    {
-        this.imie = imie;
-        this.nazwisko = nazwisko;
-        this.strategia_wyboru = strategia_wyboru;
+    public Klient(String imie, String nazwisko) {
+        super(imie, nazwisko);
     }
-
-    public void wypiszWizytowke()
+    public String toString()
     {
-        System.out.println("Klient: " + this.imie + " " + this.nazwisko + ", " + this.strategia_wyboru + ".");
+        String nazwa = "Klient: " + super.toString();
+        return nazwa;
     }
 }
