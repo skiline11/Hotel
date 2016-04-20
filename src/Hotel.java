@@ -1,3 +1,6 @@
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 public class Hotel
 {
     public static final int ilosc_pokoi = 10;
@@ -6,13 +9,14 @@ public class Hotel
     public Pokoj[] pokoje;
     public Recepcjonista[] recepcjonisci;
     public Hotel hotel;
+    public Queue<Zamowienie> zamowienia;
 
     public void main(String[] args)
     {
         stworz_liste_pokoi();
         stworz_liste_recepcjonistow();
         stworz_hotel();
-        recepcjonisci[0].wypiszWizytowke();
+        stworz_liste_zamowien();
     }
 
     private void stworz_liste_pokoi()
@@ -38,10 +42,15 @@ public class Hotel
         dodaj_do_pokoi(pokoje[3], 3, 4, 150, true, Styl.rustykalny, Kolorystyka.seledynowy, Kierunek.zachód);
         dodaj_do_pokoi(pokoje[4], 4, 5, 200, true, Styl.secesyjny, Kolorystyka.stalowy, Kierunek.południe);
 
-        dodaj_do_recepcjonistow("Jan", "Nowak", "perfekcjonistyczna", recepcjonisci, 0);
-        dodaj_do_recepcjonistow("Tomasz", "Kowalski", "losowa", recepcjonisci, 1);
-        dodaj_do_recepcjonistow("Kacper", "Dob", "złośliwa", recepcjonisci, 2);
-        dodaj_do_recepcjonistow("Adam", "Pierwszy", "aproksymacyjna", recepcjonisci, 3);
+        recepcjonisci[0] = new RecepcjonistaAproksymacyjny("Jan", "Nowak");
+        recepcjonisci[1] = new RecepcjonistaLosowy("Tomasz", "Kowalski");
+        recepcjonisci[2] = new RecepcjonistaPerfekcjonista("Albert", "Einstein");
+        recepcjonisci[3] = new RecepcjonistaZlosliwy("Adolf", "Hitler");
+    }
+
+    public void stworz_zamowienia()
+    {
+        zamowienia = new ArrayDeque<Zamowienie>();
     }
 
     private void dodaj_do_pokoi(Pokoj pokoj, int numer, int ilu_osobowy, int cena, boolean dostęp_do_internetu, Styl jaki_styl, Kolorystyka jaka_kolorystyka, Kierunek jaki_kierunek)
@@ -49,12 +58,7 @@ public class Hotel
         pokoj = new Pokoj(numer, ilu_osobowy, cena, dostęp_do_internetu, jaki_styl, jaka_kolorystyka, jaki_kierunek);
     }
 
-    private void dodaj_do_recepcjonistow(String imie, String nazwisko, String strategia, Recepcjonista[] recepcjonisci, int numer)
-    {
-        recepcjonisci[numer] = new Recepcjonista(imie, nazwisko, strategia);
-    }
-
-    public void akceptuj(Zamowienie[] zamowienia, Pokoj[] pokoj, Recepcjonista[] recepcjonisci)
+    public void akceptuj(Queue<Zamowienie> zamowienia, Pokoj[] pokoj, Recepcjonista[] recepcjonisci)
     {
 
     }
@@ -63,5 +67,29 @@ public class Hotel
     {
         Zamowienie zamowienie = new Zamowienie(klient, ankieta);
         return zamowienie;
+    }
+
+    public void stworz_liste_zamowien()
+    {
+        zamowienia = new ArrayDeque<Zamowienie>();
+
+        Klient pan1 = new KlientBudzetowy("Imie1", "Nazwisko1");
+        Ankieta ankieta1 = new Ankieta(1, 1, 1, 100, 1, 100, true, Styl.morski, Kolorystyka.jasnozielony, Kierunek.południe);
+        zamowienia.add( przyjmijZamowienie(pan1, ankieta1) );
+
+        Klient pan2 = new KlientPerfekcjonista("Imie2", "Nazwisko2");
+        Ankieta ankieta2 = new Ankieta(1, 2, 3, 100, 2, 50, true, Styl.nowoczesny, Kolorystyka.morski, Kierunek.północ);
+        zamowienia.add( przyjmijZamowienie(pan2, ankieta2) );
+
+        Klient pan3 = new KlientPolowiczny("Imie3", "Nazwisko3");
+        Ankieta ankieta3 = new Ankieta(1, 2, 20, 50, 3, 75, true, Styl.orientalny, Kolorystyka.purpurowy, Kierunek.wschód);
+        zamowienia.add( przyjmijZamowienie(pan3, ankieta3) );
+
+        Klient pan4 = new KlientUgodowy("Imie4", "Nazwisko4");
+        Ankieta ankieta4 = new Ankieta(1, 6, 5, 100, 5, 200, true, Styl.rustykalny, Kolorystyka.seledynowy, Kierunek.zachód);
+        zamowienia.add (przyjmijZamowienie(pan4, ankieta4) );
+
+
+
     }
 }
