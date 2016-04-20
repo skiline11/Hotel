@@ -20,4 +20,17 @@ public class Pokoj
         this.jaka_kolorystyka = jaka_kolorystyka;
         this.jaki_kierunek = jaki_kierunek;
     }
+
+    @Override
+    public String toString() {
+        return "Pokoj{" +
+                "numer=" + numer +
+                ", ilu_osobowy=" + ilu_osobowy +
+                ", cena=" + cena +
+                ", dostęp_do_internetu=" + dostęp_do_internetu +
+                ", jaki_styl=" + jaki_styl +
+                ", jaka_kolorystyka=" + jaka_kolorystyka +
+                ", jaki_kierunek=" + jaki_kierunek +
+                '}';
+    }
 }
