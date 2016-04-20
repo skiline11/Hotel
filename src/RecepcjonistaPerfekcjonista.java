@@ -8,4 +8,3 @@ public class RecepcjonistaPerfekcjonista extends Recepcjonista{
         return nazwa;
     }
 }
-}

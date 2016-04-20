@@ -8,4 +8,3 @@ public class RecepcjonistaAproksymacyjny extends Recepcjonista {
         return nazwa;
     }
 }
-}

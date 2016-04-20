@@ -6,7 +6,7 @@ public abstract class Recepcjonista extends Osoba
 
     public String toString()
     {
-        String nazwa = "Klient: " + this.imie_i_nazwisko;
+        String nazwa = "Klient: " + super.toString();
         return nazwa;
     }
 }

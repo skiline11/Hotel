@@ -8,4 +8,3 @@ public class KlientPerfekcjonista extends Klient{
         return nazwa;
     }
 }
-}
