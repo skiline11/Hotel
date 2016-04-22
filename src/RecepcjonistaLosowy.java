@@ -6,8 +6,7 @@ public class RecepcjonistaLosowy extends Recepcjonista{
     }
     public String toString()
     {
-        String nazwa = super.toString() + ", losowa";
-        return nazwa;
+        return (super.toString() + ", losowa.");
     }
 
     @Override

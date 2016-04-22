@@ -6,8 +6,7 @@ public abstract class Recepcjonista extends Osoba
 
     public String toString()
     {
-        String nazwa = "Klient: " + super.toString();
-        return nazwa;
+        return ("Recepcjonista: " + super.toString());
     }
 
     public abstract Pokoj wybierz_pokoj(Zamowienie rozpatrywane_zamowienie, Pokoj[] pokoje);

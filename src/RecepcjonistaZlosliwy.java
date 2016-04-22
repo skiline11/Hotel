@@ -4,14 +4,13 @@ public class RecepcjonistaZlosliwy extends Recepcjonista{
     }
     public String toString()
     {
-        String nazwa = super.toString() + ", zlosliwa";
-        return nazwa;
+        return (super.toString() + ", zlosliwa.");
     }
 
     public Pokoj wybierz_pokoj(Zamowienie rozpatrywane_zamowienie, Pokoj[] pokoje)
     {
         int najgorszy_pokoj = -1;
-        int spelnionych_wymagan = 0;
+        int spelnionych_wymagan;
         int min_spelnionych_wymagan = 7;
         int iterator = 0;
         while(iterator < pokoje.length)

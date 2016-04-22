@@ -7,7 +7,6 @@ public class Osoba {
         this.nazwisko = nazwisko;
     }
     public String toString() {
-        String imie_i_nazwisko = this.imie + " " + this.nazwisko;
-        return imie_i_nazwisko;
+        return (this.imie + " " + this.nazwisko);
     }
 }

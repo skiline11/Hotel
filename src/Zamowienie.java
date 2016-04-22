@@ -1,8 +1,8 @@
 public class Zamowienie
 {
-    private Klient klient;
+    public Klient klient;
     public Ankieta ankieta;
-    private int licznik_rozpatrywań;
+    public int licznik_rozpatrywań;
 
     public Zamowienie(Klient klient, Ankieta ankieta)
     {
@@ -11,12 +11,12 @@ public class Zamowienie
         this.licznik_rozpatrywań = 0;
     }
 
-    private void zwieksz_licznik()
+    public void zwiększ_licznik()
     {
         this.licznik_rozpatrywań += 1;
     }
 
-    private boolean czy_osiagnieto_limit_rozpatrywan()
+    public boolean czy_osiagnieto_limit_rozpatrywan()
     {
         return(this.licznik_rozpatrywań == 3);
     }
@@ -30,5 +30,4 @@ public class Zamowienie
     {
         return this.klient.czy_akceptuje_pokoj(pokoj, this.ankieta);
     }
-
 }

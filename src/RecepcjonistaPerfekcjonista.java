@@ -4,15 +4,13 @@ public class RecepcjonistaPerfekcjonista extends Recepcjonista{
     }
     public String toString()
     {
-        String nazwa = super.toString() + ", perfekcjonistyczna";
-        return nazwa;
+        return (super.toString() + ", perfekcjonistyczna.");
     }
 
     public Pokoj wybierz_pokoj(Zamowienie rozpatrywane_zamowienie, Pokoj[] pokoje)
     {
         int najlepszy_pokoj = -1;
-        int spelnionych_wymagan = 0;
-        int max_spelnionych_wymagan = -1;
+        int spelnionych_wymagan;
         int iterator = 0;
         while(iterator < pokoje.length)
         {

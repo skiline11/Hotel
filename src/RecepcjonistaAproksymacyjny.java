@@ -4,13 +4,12 @@ public class RecepcjonistaAproksymacyjny extends Recepcjonista {
     }
     public String toString()
     {
-        String nazwa = super.toString() + ", aproksymacyjna";
-        return nazwa;
+        return (super.toString() + ", aproksymacyjna.");
     }
     public Pokoj wybierz_pokoj(Zamowienie rozpatrywane_zamowienie, Pokoj[] pokoje)
     {
         int najlepszy_pokoj = -1;
-        int spelnionych_wymagan = 0;
+        int spelnionych_wymagan;
         int max_spelnionych_wymagan = -1;
         int iterator = 0;
         while(iterator < pokoje.length)

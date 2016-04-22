@@ -5,8 +5,7 @@ public abstract class Klient extends Osoba
     }
     public String toString()
     {
-        String nazwa = "Klient: " + super.toString();
-        return nazwa;
+        return ("Klient: " + super.toString());
     }
 
     public abstract boolean czy_akceptuje_pokoj(Pokoj pokoj, Ankieta ankieta);

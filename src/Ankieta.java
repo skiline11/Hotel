@@ -28,4 +28,18 @@ public class Ankieta
     {
         return (termin.pierwszy_dzien_pobytu.after(this.data_wyjazdu) ||  termin.ostatni_dzien_pobytu.before(this.data_przyjazdu));
     }
+
+    @Override
+    public String toString() {
+        return "Zamowienie: " +
+                "data_przyjazdu=" + this.data_przyjazdu.toString() +
+                ", data_wyjazdu=" + this.data_wyjazdu.toString() +
+                ", ile_osob=" + ile_osob +
+                ", cena=" + cena +
+                ", dostęp_do_internetu=" + dostęp_do_internetu +
+                ", jaki_styl=" + jaki_styl.toString() +
+                ", jaka_kolorystyka=" + jaka_kolorystyka.toString() +
+                ", jaki_kierunek=" + jaki_kierunek.toString() +
+                '}';
+    }
 }

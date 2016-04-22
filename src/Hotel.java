@@ -3,9 +3,9 @@ import java.util.Iterator;
 
 public class Hotel
 {
-    private Pokoj[] pokoje;
-    private Recepcjonista[] recepcjonisci;
-    private ArrayDeque<Zamowienie> zamowienia;
+    //private Pokoj[] pokoje;
+    //private Recepcjonista[] recepcjonisci;
+    //private ArrayDeque<Zamowienie> zamowienia;
 
     private Hotel(Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
@@ -35,8 +35,7 @@ public class Hotel
 
     private void akceptuj(ArrayDeque<Zamowienie> zamowienia, Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
-        int numer_zamowienia = 0;
-        int numer_recepcjonisty = 0;
+
         Iterator<Zamowienie> iterator_zamowien = zamowienia.iterator();
         int iterator_recepcjonistow = 0;
         while(! zamowienia.isEmpty())
@@ -45,18 +44,24 @@ public class Hotel
             Zamowienie rozpatrywane_zamowienie = iterator_zamowien.next();
             if(this.czy_da_sie_zarezerwować_pokoj_w_podanym_przedziale_czasowym(rozpatrywane_zamowienie, pokoje))
             {
+                if(iterator_recepcjonistow >= recepcjonisci.length) iterator_recepcjonistow = 0;
                 Pokoj wybrany_pokoj_przez_recepcjoniste = recepcjonisci[iterator_recepcjonistow].wybierz_pokoj(rozpatrywane_zamowienie, pokoje);
                 if (rozpatrywane_zamowienie.czy_klient_akceptuje_pokoj(wybrany_pokoj_przez_recepcjoniste) == true)
                 {
-                    wybrany_pokoj_przez_recepcjoniste.rezerwuj(rozpatrywane_zamowienie.klient);
+                    wybrany_pokoj_przez_recepcjoniste.rezerwuj(rozpatrywane_zamowienie.ankieta);
+                    System.out.println(recepcjonisci[iterator_recepcjonistow].toString());
+                    System.out.println(rozpatrywane_zamowienie.ankieta.toString());
+                    System.out.println(wybrany_pokoj_przez_recepcjoniste.toString());
+                    System.out.println(rozpatrywane_zamowienie.klient.toString());
+                    System.out.println("tak/nie\n");
                 }
                 else
                 {
-                    rozpatrywane_zamowienie.licznik_rozpatrywan++;
-                    if (rozpatrywane_zamowienie.licznik_rozpatrywan < 3) zamowienia.add(rozpatrywane_zamowienie);
+                    rozpatrywane_zamowienie.zwiększ_licznik();
+                    if(rozpatrywane_zamowienie.czy_osiagnieto_limit_rozpatrywan() == false) zamowienia.add(rozpatrywane_zamowienie);
                 }
             }
-            rozpatrywane_zamowienie.remove();
+            iterator_zamowien.remove();
         }
     }
 
@@ -79,14 +84,6 @@ public class Hotel
         zamowienia.add( new Zamowienie(pan4, ankieta4) );
     }
 
-    private void wypisz_pokoje(Pokoj[] pokoje)
-    {
-        for(Pokoj jakis_pokoj : pokoje)
-        {
-            System.out.println(jakis_pokoj.toString());
-        }
-    }
-
     public static void main(String[] args)
     {
         Pokoj[] pokoje = new Pokoj[5];
@@ -94,7 +91,6 @@ public class Hotel
         Hotel hotel = new Hotel(pokoje, recepcjonisci);
         ArrayDeque<Zamowienie> zamowienia = new ArrayDeque<>();
         hotel.stworz_liste_zamowien(zamowienia);
-        hotel.wypisz_pokoje(pokoje);
         hotel.akceptuj(zamowienia, pokoje, recepcjonisci);
     }
 }

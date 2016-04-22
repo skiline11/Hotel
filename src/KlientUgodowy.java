@@ -5,8 +5,7 @@ public class KlientUgodowy extends Klient{
 
     public String toString()
     {
-        String nazwa = super.toString() + ", ugodowa";
-        return nazwa;
+        return (super.toString() + ", ugodowa.");
     }
 
     public boolean czy_akceptuje_pokoj(Pokoj pokoj, Ankieta ankieta)

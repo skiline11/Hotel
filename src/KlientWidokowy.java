@@ -4,8 +4,7 @@ public class KlientWidokowy extends Klient{
     }
     public String toString()
     {
-        String nazwa = super.toString() + ", widokowa";
-        return nazwa;
+        return (super.toString() + ", widokowa.");
     }
 
     public boolean czy_akceptuje_pokoj(Pokoj pokoj, Ankieta ankieta)

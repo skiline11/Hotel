@@ -5,8 +5,7 @@ public class KlientPolowiczny extends Klient{
 
     public String toString()
     {
-        String nazwa = super.toString() + ", polowiczna";
-        return nazwa;
+        return (super.toString() + ", polowiczna.");
     }
 
     public boolean czy_akceptuje_pokoj(Pokoj pokoj, Ankieta ankieta)

@@ -4,8 +4,7 @@ public class KlientPerfekcjonista extends Klient{
     }
     public String toString()
     {
-        String nazwa = super.toString() + ", perfekcjonistyczna";
-        return nazwa;
+        return (super.toString() + ", perfekcjonistyczna.");
     }
     public boolean czy_akceptuje_pokoj(Pokoj pokoj, Ankieta ankieta)
     {

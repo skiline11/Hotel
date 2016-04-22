@@ -1,5 +1,4 @@
 import java.util.ArrayDeque;
-import java.util.Calendar;
 import java.util.Iterator;
 
 public class Pokoj
@@ -26,7 +25,7 @@ public class Pokoj
 
     @Override
     public String toString() {
-        return "Pokoj{" +
+        return "Proponowany pokoj: " +
                 "numer=" + numer +
                 ", ilu_osobowy=" + ilu_osobowy +
                 ", cena=" + cena +
@@ -47,5 +46,10 @@ public class Pokoj
             da_sie = rozpatrywane_zamowienie.czy_da_sie_zarezerwowac(termin);
         }
         return da_sie;
+    }
+    public void rezerwuj(Ankieta ankieta)
+    {
+        Przedzial_czasowy nowy_przedzial = new Przedzial_czasowy(ankieta.data_przyjazdu, ankieta.data_wyjazdu);
+        this.zajete_terminy.add(nowy_przedzial);
     }
 }
