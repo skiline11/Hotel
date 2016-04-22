@@ -1,3 +1,6 @@
+/* Michał Radecki nr 371591
+   Zadanie lab.nr1 : Hotel
+ */
 public class RecepcjonistaPerfekcjonista extends Recepcjonista{
     public RecepcjonistaPerfekcjonista(String imie, String nazwisko) {
         super(imie, nazwisko);

@@ -1,3 +1,6 @@
+/* Michał Radecki nr 371591
+   Zadanie lab.nr1 : Hotel
+ */
 import java.util.ArrayDeque;
 import java.util.Iterator;
 
@@ -26,14 +29,12 @@ public class Pokoj
     @Override
     public String toString() {
         return "Proponowany pokoj: " +
-                "numer=" + numer +
                 ", ilu_osobowy=" + ilu_osobowy +
                 ", cena=" + cena +
                 ", dostęp_do_internetu=" + dostęp_do_internetu +
                 ", jaki_styl=" + jaki_styl +
                 ", jaka_kolorystyka=" + jaka_kolorystyka +
-                ", jaki_kierunek=" + jaki_kierunek +
-                '}';
+                ", jaki_kierunek=" + jaki_kierunek + ".";
     }
 
     public boolean czy_da_sie_zarezerwowac(Zamowienie rozpatrywane_zamowienie)

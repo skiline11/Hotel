@@ -1,3 +1,6 @@
+/* Michał Radecki nr 371591
+   Zadanie lab.nr1 : Hotel
+ */
 public abstract class Recepcjonista extends Osoba
 {
     public Recepcjonista(String imie, String nazwisko) {

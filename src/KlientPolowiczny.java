@@ -1,3 +1,6 @@
+/* Michał Radecki nr 371591
+   Zadanie lab.nr1 : Hotel
+ */
 public class KlientPolowiczny extends Klient{
     public KlientPolowiczny(String imie, String nazwisko) {
         super(imie, nazwisko);
