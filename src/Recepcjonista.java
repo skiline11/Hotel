@@ -9,4 +9,6 @@ public abstract class Recepcjonista extends Osoba
         String nazwa = "Klient: " + super.toString();
         return nazwa;
     }
+
+    public abstract Pokoj wybierz_pokoj(Zamowienie rozpatrywane_zamowienie, Pokoj[] pokoje);
 }

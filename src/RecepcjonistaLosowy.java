@@ -7,4 +7,10 @@ public class RecepcjonistaLosowy extends Recepcjonista{
         String nazwa = super.toString() + ", losowa";
         return nazwa;
     }
+
+    @Override
+    public Pokoj wybierz_pokoj(Zamowienie rozpatrywane_zamowienie, Pokoj[] pokoje) {
+        if(sprawdz_czy_jest_pokoj_o_zgodnej_dacie)
+
+    }
 }

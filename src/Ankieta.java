@@ -23,4 +23,9 @@ public class Ankieta
         this.jaka_kolorystyka = jaka_kolorystyka;
         this.jaki_kierunek = jaki_kierunek;
     }
+
+    boolean czy_da_sie_zarezerwowac(Przedzial_czasowy termin)
+    {
+        return (termin.pierwszy_dzien_pobytu.after(this.data_wyjazdu) ||  termin.ostatni_dzien_pobytu.before(this.data_przyjazdu));
+    }
 }

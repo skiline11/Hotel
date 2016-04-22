@@ -21,6 +21,18 @@ public class Hotel
         recepcjonisci[3] = new RecepcjonistaZlosliwy("Adolf", "Hitler");
     }
 
+    private boolean czy_da_sie_zarezerwować_pokoj_w_podanym_przedziale_czasowym(Zamowienie rozpatrywane_zamowienie, Pokoj[] pokoje)
+    {
+        boolean da_sie = false;
+        int iterator_pokoi = 0;
+        while(da_sie == false && iterator_pokoi < pokoje.length)
+        {
+            da_sie = pokoje[iterator_pokoi].czy_da_sie_zarezerwowac(rozpatrywane_zamowienie);
+            iterator_pokoi++;
+        }
+        return da_sie;
+    }
+
     private void akceptuj(ArrayDeque<Zamowienie> zamowienia, Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
         int numer_zamowienia = 0;
@@ -31,18 +43,17 @@ public class Hotel
         {
             if(iterator_zamowien.hasNext() == false) iterator_zamowien = zamowienia.iterator();
             Zamowienie rozpatrywane_zamowienie = iterator_zamowien.next();
-            Pokoj wybrany_pokoj_przez_recepcjoniste = recepcjonisci[iterator_recepcjonistow].wybierz_pokoj(rozpatrywane_zamowienie, pokoje);
-            if(wybrany_pokoj_przez_recepcjoniste != null)
+            if(this.czy_da_sie_zarezerwować_pokoj_w_podanym_przedziale_czasowym(rozpatrywane_zamowienie, pokoje))
             {
-                if(rozpatrywane_zamowienie.klient.czy_akceptuje_pokoj(wybrany_pokoj_przez_recepcjoniste) == true)
+                Pokoj wybrany_pokoj_przez_recepcjoniste = recepcjonisci[iterator_recepcjonistow].wybierz_pokoj(rozpatrywane_zamowienie, pokoje);
+                if (rozpatrywane_zamowienie.klient.czy_akceptuje_pokoj(wybrany_pokoj_przez_recepcjoniste) == true)
                 {
                     wybrany_pokoj_przez_recepcjoniste.rezerwuj(rozpatrywane_zamowienie.klient);
                 }
                 else
                 {
                     rozpatrywane_zamowienie.licznik_rozpatrywan++;
-                    if(rozpatrywane_zamowienie.licznik_rozpatrywan < 3) zamowienia.add(rozpatrywane_zamowienie);
-                    rozpatrywane_zamowienie.remove();
+                    if (rozpatrywane_zamowienie.licznik_rozpatrywan < 3) zamowienia.add(rozpatrywane_zamowienie);
                 }
             }
             rozpatrywane_zamowienie.remove();

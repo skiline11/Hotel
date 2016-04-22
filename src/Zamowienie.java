@@ -21,4 +21,9 @@ public class Zamowienie
         return(this.licznik_rozpatrywań == 3);
     }
 
+    public boolean czy_da_sie_zarezerwowac(Przedzial_czasowy termin)
+    {
+        return this.ankieta.czy_da_sie_zarezerwowac(termin);
+    }
+
 }

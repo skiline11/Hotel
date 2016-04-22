@@ -1,5 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.Calendar;
-import java.util.LinkedList;
+import java.util.Iterator;
 
 public class Pokoj
 {
@@ -8,7 +9,7 @@ public class Pokoj
     private Styl jaki_styl;
     private Kolorystyka jaka_kolorystyka;
     private Kierunek jaki_kierunek;
-    private LinkedList<Przedzial_czasowy> zajete_terminy = new LinkedList<Przedzial_czasowy>();
+    private ArrayDeque<Przedzial_czasowy> zajete_terminy;
 
     public Pokoj(int numer, int ilu_osobowy, int cena, boolean dostęp_do_internetu, Styl jaki_styl, Kolorystyka jaka_kolorystyka, Kierunek jaki_kierunek)
     {
@@ -19,6 +20,7 @@ public class Pokoj
         this.jaki_styl = jaki_styl;
         this.jaka_kolorystyka = jaka_kolorystyka;
         this.jaki_kierunek = jaki_kierunek;
+        this.zajete_terminy = new ArrayDeque<>();
     }
 
     @Override
@@ -32,5 +34,17 @@ public class Pokoj
                 ", jaka_kolorystyka=" + jaka_kolorystyka +
                 ", jaki_kierunek=" + jaki_kierunek +
                 '}';
+    }
+
+    public boolean czy_da_sie_zarezerwowac(Zamowienie rozpatrywane_zamowienie)
+    {
+        boolean da_sie = true;
+        Iterator<Przedzial_czasowy> iterator_zajetych_terminow = zajete_terminy.iterator();
+        while(iterator_zajetych_terminow.hasNext() && da_sie == true)
+        {
+            Przedzial_czasowy termin = iterator_zajetych_terminow.next();
+            da_sie = rozpatrywane_zamowienie.czy_da_sie_zarezerwowac(termin);
+        }
+        return da_sie;
     }
 }
