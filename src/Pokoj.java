@@ -4,12 +4,13 @@ import java.util.Iterator;
 
 public class Pokoj
 {
-    private int numer, ilu_osobowy, cena;
-    private boolean dostęp_do_internetu;
-    private Styl jaki_styl;
-    private Kolorystyka jaka_kolorystyka;
-    private Kierunek jaki_kierunek;
-    private ArrayDeque<Przedzial_czasowy> zajete_terminy;
+    public int numer, ilu_osobowy;
+    public int cena;
+    public boolean dostęp_do_internetu;
+    public Styl jaki_styl;
+    public Kolorystyka jaka_kolorystyka;
+    public Kierunek jaki_kierunek;
+    public ArrayDeque<Przedzial_czasowy> zajete_terminy;
 
     public Pokoj(int numer, int ilu_osobowy, int cena, boolean dostęp_do_internetu, Styl jaki_styl, Kolorystyka jaka_kolorystyka, Kierunek jaki_kierunek)
     {

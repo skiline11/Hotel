@@ -2,12 +2,12 @@ import java.util.Calendar;
 
 public class Ankieta
 {
-    private Calendar data_przyjazdu, data_wyjazdu;
-    private int ile_osob, cena;
-    private boolean dostęp_do_internetu;
-    private Styl jaki_styl;
-    private Kolorystyka jaka_kolorystyka;
-    private Kierunek jaki_kierunek;
+    public Calendar data_przyjazdu, data_wyjazdu;
+    public int ile_osob, cena;
+    public boolean dostęp_do_internetu;
+    public Styl jaki_styl;
+    public Kolorystyka jaka_kolorystyka;
+    public Kierunek jaki_kierunek;
 
     public Ankieta(int rok, int miesiac, int dzien, int ile_dni_pobytu, int ile_osob, int cena, boolean dostęp_do_internetu, Styl jaki_styl, Kolorystyka jaka_kolorystyka, Kierunek jaki_kierunek)
     {

@@ -26,4 +26,9 @@ public class Zamowienie
         return this.ankieta.czy_da_sie_zarezerwowac(termin);
     }
 
+    public boolean czy_klient_akceptuje_pokoj(Pokoj pokoj)
+    {
+        return this.klient.czy_akceptuje_pokoj(pokoj, this.ankieta);
+    }
+
 }

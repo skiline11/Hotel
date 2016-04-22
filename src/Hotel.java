@@ -46,7 +46,7 @@ public class Hotel
             if(this.czy_da_sie_zarezerwować_pokoj_w_podanym_przedziale_czasowym(rozpatrywane_zamowienie, pokoje))
             {
                 Pokoj wybrany_pokoj_przez_recepcjoniste = recepcjonisci[iterator_recepcjonistow].wybierz_pokoj(rozpatrywane_zamowienie, pokoje);
-                if (rozpatrywane_zamowienie.klient.czy_akceptuje_pokoj(wybrany_pokoj_przez_recepcjoniste) == true)
+                if (rozpatrywane_zamowienie.czy_klient_akceptuje_pokoj(wybrany_pokoj_przez_recepcjoniste) == true)
                 {
                     wybrany_pokoj_przez_recepcjoniste.rezerwuj(rozpatrywane_zamowienie.klient);
                 }
