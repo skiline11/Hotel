@@ -32,12 +32,13 @@ public class RecepcjonistaAproksymacyjny extends Recepcjonista {
                 }
                 else
                 {
-                    if(spelnionych_wymagan == max_spelnionych_wymagan)
+                    if(spelnionych_wymagan > max_spelnionych_wymagan) najlepszy_pokoj = iterator;
+                    else if(spelnionych_wymagan == max_spelnionych_wymagan)
                     {
                         if(pokoje[iterator].cena > pokoje[najlepszy_pokoj].cena) najlepszy_pokoj = iterator;
                         else if(pokoje[iterator].cena == pokoje[najlepszy_pokoj].cena)
                         {
-                            if(pokoje[iterator].numer > pokoje[najlepszy_pokoj].numer) najlepszy_pokoj = iterator;
+                            if(pokoje[iterator].numer < pokoje[najlepszy_pokoj].numer) najlepszy_pokoj = iterator;
                         }
                     }
                 }
