@@ -1,4 +1,5 @@
 import java.util.ArrayDeque;
+import java.util.Iterator;
 
 public class Hotel
 {
@@ -6,7 +7,7 @@ public class Hotel
     private Recepcjonista[] recepcjonisci;
     private ArrayDeque<Zamowienie> zamowienia;
 
-    public Hotel(Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
+    private Hotel(Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
         pokoje[0] = new Pokoj(0, 1, 100, true, Styl.morski, Kolorystyka.jasnozielony, Kierunek.południe);
         pokoje[1] = new Pokoj(1, 2, 50, true, Styl.nowoczesny, Kolorystyka.morski, Kierunek.północ);
@@ -19,12 +20,34 @@ public class Hotel
         recepcjonisci[2] = new RecepcjonistaPerfekcjonista("Albert", "Einstein");
         recepcjonisci[3] = new RecepcjonistaZlosliwy("Adolf", "Hitler");
     }
-/*
-    public void akceptuj(ArrayDeque<Zamowienie> zamowienia, Pokoj[] pokoj, Recepcjonista[] recepcjonisci)
-    {
 
+    private void akceptuj(ArrayDeque<Zamowienie> zamowienia, Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
+    {
+        int numer_zamowienia = 0;
+        int numer_recepcjonisty = 0;
+        Iterator<Zamowienie> iterator_zamowien = zamowienia.iterator();
+        int iterator_recepcjonistow = 0;
+        while(! zamowienia.isEmpty())
+        {
+            if(iterator_zamowien.hasNext() == false) iterator_zamowien = zamowienia.iterator();
+            Zamowienie rozpatrywane_zamowienie = iterator_zamowien.next();
+            Pokoj wybrany_pokoj_przez_recepcjoniste = recepcjonisci[iterator_recepcjonistow].wybierz_pokoj(rozpatrywane_zamowienie, pokoje);
+            if(wybrany_pokoj_przez_recepcjoniste != null)
+            {
+                if(rozpatrywane_zamowienie.klient.czy_akceptuje_pokoj(wybrany_pokoj_przez_recepcjoniste) == true)
+                {
+                    wybrany_pokoj_przez_recepcjoniste.rezerwuj(rozpatrywane_zamowienie.klient);
+                }
+                else
+                {
+                    rozpatrywane_zamowienie.licznik_rozpatrywan++;
+                    if(rozpatrywane_zamowienie.licznik_rozpatrywan < 3) zamowienia.add(rozpatrywane_zamowienie);
+                    rozpatrywane_zamowienie.remove();
+                }
+            }
+            rozpatrywane_zamowienie.remove();
+        }
     }
-*/
 
     private void stworz_liste_zamowien(ArrayDeque<Zamowienie> zamowienia)
     {
@@ -61,5 +84,6 @@ public class Hotel
         ArrayDeque<Zamowienie> zamowienia = new ArrayDeque<>();
         hotel.stworz_liste_zamowien(zamowienia);
         hotel.wypisz_pokoje(pokoje);
+        hotel.akceptuj(zamowienia, pokoje, recepcjonisci);
     }
 }

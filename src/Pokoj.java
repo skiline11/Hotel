@@ -3,12 +3,12 @@ import java.util.LinkedList;
 
 public class Pokoj
 {
-    int numer, ilu_osobowy, cena;
-    boolean dostęp_do_internetu;
-    Styl jaki_styl;
-    Kolorystyka jaka_kolorystyka;
-    Kierunek jaki_kierunek;
-    LinkedList<Przedzial_czasowy> zajete_terminy = new LinkedList<Przedzial_czasowy>();
+    private int numer, ilu_osobowy, cena;
+    private boolean dostęp_do_internetu;
+    private Styl jaki_styl;
+    private Kolorystyka jaka_kolorystyka;
+    private Kierunek jaki_kierunek;
+    private LinkedList<Przedzial_czasowy> zajete_terminy = new LinkedList<Przedzial_czasowy>();
 
     public Pokoj(int numer, int ilu_osobowy, int cena, boolean dostęp_do_internetu, Styl jaki_styl, Kolorystyka jaka_kolorystyka, Kierunek jaki_kierunek)
     {
