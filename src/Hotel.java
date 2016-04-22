@@ -6,7 +6,6 @@ public class Hotel
     private static final int ilosc_recepcjonistow = 4;
     private static Pokoj[] pokoje;
     private static Recepcjonista[] recepcjonisci;
-    private static Hotel hotel;
     private static ArrayDeque<Zamowienie> zamowienia;
 
     private void stworz_liste_pokoi()
@@ -24,7 +23,7 @@ public class Hotel
         hotel = new Hotel(pokoje, recepcjonisci);
     }
 
-    private Hotel(Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
+    public Hotel(Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
         dodaj_do_pokoi(pokoje[0], 0, 1, 100, true, Styl.morski, Kolorystyka.jasnozielony, Kierunek.południe);
         dodaj_do_pokoi(pokoje[1], 1, 2, 50, true, Styl.nowoczesny, Kolorystyka.morski, Kierunek.północ);
@@ -85,10 +84,10 @@ public class Hotel
 
     public static void main(String[] args)
     {
-        hotel.stworz_liste_pokoi();
-//        hotel.stworz_liste_recepcjonistow();
-//        hotel.stworz_hotel();
-//        hotel.stworz_liste_zamowien();
-//        hotel.wypisz_pokoje();
+        this.stworz_liste_pokoi();
+        hotel.stworz_liste_recepcjonistow();
+        hotel.stworz_hotel();
+        hotel.stworz_liste_zamowien();
+        hotel.wypisz_pokoje();
     }
 }
