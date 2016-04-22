@@ -7,4 +7,9 @@ public class KlientWidokowy extends Klient{
         String nazwa = super.toString() + ", widokowa";
         return nazwa;
     }
+
+    public boolean czy_akceptuje_pokoj(Pokoj pokoj, Ankieta ankieta)
+    {
+        return(pokoj.jaki_kierunek == ankieta.jaki_kierunek);
+    }
 }

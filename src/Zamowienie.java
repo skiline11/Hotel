@@ -1,7 +1,7 @@
 public class Zamowienie
 {
     private Klient klient;
-    private Ankieta ankieta;
+    public Ankieta ankieta;
     private int licznik_rozpatrywań;
 
     public Zamowienie(Klient klient, Ankieta ankieta)
