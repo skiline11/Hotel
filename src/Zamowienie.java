@@ -1,7 +1,7 @@
 public class Zamowienie
 {
-    Klient klient;
-    Ankieta ankieta;
+    private Klient klient;
+    private Ankieta ankieta;
 
     public Zamowienie(Klient klient, Ankieta ankieta)
     {
