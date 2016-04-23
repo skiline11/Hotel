@@ -92,25 +92,40 @@ public class Hotel
     private void stworz_liste_zamowien(ArrayDeque<Zamowienie> zamowienia)
     {
         Klient pan1 = new KlientBudzetowy("Oszczedny", "Felek");
-        Ankieta ankieta1 = new Ankieta(1, 1, 1, 100, 1, 100, true, Styl.morski, Kolorystyka.jasnozielony, Kierunek.poludnie);
+        Ankieta ankieta1 = new Ankieta(1, 1, 1, 10, 1, 100, true, Styl.morski, Kolorystyka.jasnozielony, Kierunek.poludnie);
         zamowienia.add( new Zamowienie(pan1, ankieta1) );
 
         Klient pan2 = new KlientPerfekcjonista("Mateusz", "Perfekt");
-        Ankieta ankieta2 = new Ankieta(1, 7, 20, 100, 2, 50, true, Styl.nowoczesny, Kolorystyka.morski, Kierunek.polnoc);
+        Ankieta ankieta2 = new Ankieta(1, 1, 5, 10, 2, 50, true, Styl.nowoczesny, Kolorystyka.morski, Kierunek.polnoc);
         zamowienia.add( new Zamowienie(pan2, ankieta2) );
 
         Klient pan3 = new KlientPolowiczny("Robert", "Przepolowiony");
-        Ankieta ankieta3 = new Ankieta(1, 2, 20, 50, 3, 75, true, Styl.orientalny, Kolorystyka.purpurowy, Kierunek.wschod);
+        Ankieta ankieta3 = new Ankieta(1, 1, 10, 10, 3, 75, true, Styl.orientalny, Kolorystyka.purpurowy, Kierunek.wschod);
         zamowienia.add( new Zamowienie(pan3, ankieta3) );
 
         Klient pan4 = new KlientUgodowy("Jan", "Baranowski");
-        Ankieta ankieta4 = new Ankieta(1, 6, 5, 100, 5, 200, true, Styl.rustykalny, Kolorystyka.seledynowy, Kierunek.zachod);
+        Ankieta ankieta4 = new Ankieta(1, 1, 15, 10, 5, 200, true, Styl.rustykalny, Kolorystyka.seledynowy, Kierunek.zachod);
         zamowienia.add( new Zamowienie(pan4, ankieta4) );
 
         Klient pan5 = new KlientWidokowy("Hilary", "Patrzygała");
-        Ankieta ankieta5 = new Ankieta(2, 4, 8, 2, 15, 120, false, Styl.nowoczesny, Kolorystyka.szary, Kierunek.polnoc);
+        Ankieta ankieta5 = new Ankieta(1, 1, 20, 10, 15, 120, false, Styl.nowoczesny, Kolorystyka.szary, Kierunek.polnoc);
         zamowienia.add( new Zamowienie(pan5, ankieta5) );
 
+        Klient pan6 = new KlientBudzetowy("Pan", "Pieniazek");
+        Ankieta ankieta6 = new Ankieta(1, 1, 25, 10, 25, 100, true, Styl.morski, Kolorystyka.morski, Kierunek.poludnie);
+        zamowienia.add( new Zamowienie(pan6, ankieta6));
+
+        Klient pan7 = new KlientPerfekcjonista("Marian", "Idealny");
+        Ankieta ankieta7 = new Ankieta(1, 1, 30, 10, 21, 50, false, Styl.nowoczesny, Kolorystyka.jasnozielony, Kierunek.polnoc);
+        zamowienia.add( new Zamowienie(pan7, ankieta7));
+
+        Klient pan8 = new KlientPerfekcjonista("Ferdynand", "Pierwszy");
+        Ankieta ankieta8 = new Ankieta(1, 2, 5, 10, 21, 50, false, Styl.nowoczesny, Kolorystyka.jasnozielony, Kierunek.polnoc);
+        zamowienia.add( new Zamowienie(pan8, ankieta8));
+
+        Klient pan9 = new KlientPolowiczny("Antek", "Dzielnikowy");
+        Ankieta ankieta9 = new Ankieta(1, 2, 10, 10, 12, 75, true, Styl.rustykalny, Kolorystyka.seledynowy, Kierunek.wschod);
+        zamowienia.add( new Zamowienie(pan9, ankieta9));
     }
 
     public static void main(String[] args)
