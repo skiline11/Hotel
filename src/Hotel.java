@@ -6,10 +6,6 @@ import java.util.Iterator;
 
 public class Hotel
 {
-    //private Pokoj[] pokoje;
-    //private Recepcjonista[] recepcjonisci;
-    //private ArrayDeque<Zamowienie> zamowienia;
-
     private Hotel(Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
         pokoje[0] = new Pokoj(0, 1, 100, true, Styl.morski, Kolorystyka.jasnozielony, Kierunek.południe);
@@ -65,6 +61,7 @@ public class Hotel
                 }
             }
             iterator_zamowien.remove();
+            iterator_recepcjonistow++;
         }
     }
 

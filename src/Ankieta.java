@@ -6,7 +6,7 @@ import java.util.Calendar;
 public class Ankieta
 {
     public Calendar data_przyjazdu, data_wyjazdu;
-    public int ile_osob, cena;
+    public int ile_osob, cena, ile_dni_pobytu;
     public boolean dostęp_do_internetu;
     public Styl jaki_styl;
     public Kolorystyka jaka_kolorystyka;
@@ -19,6 +19,7 @@ public class Ankieta
         this.data_przyjazdu.set(rok, miesiac, dzien);
         this.data_wyjazdu.set(rok, miesiac, dzien);
         this.data_wyjazdu.add(Calendar.DAY_OF_MONTH, ile_dni_pobytu - 1);
+        this.ile_dni_pobytu = ile_dni_pobytu;
         this.ile_osob = ile_osob;
         this.cena = cena;
         this.dostęp_do_internetu = dostęp_do_internetu;
@@ -39,9 +40,10 @@ public class Ankieta
 
     @Override
     public String toString() {
-        return "Zamowienie: " +
-                "data_przyjazdu=" + zwroc_czas(data_przyjazdu) + "rok" +
-                ", data_wyjazdu=" + zwroc_czas(data_wyjazdu) + "rok" +
+        return "Zamowienie:" +
+                " data_przyjazdu=" + zwroc_czas(data_przyjazdu) + "rok" +
+                ", liczba_dni_pobytu=" + ile_dni_pobytu +
+                " (data_wyjazdu=" + zwroc_czas(data_wyjazdu) + "rok)" +
                 ", ile_osob=" + ile_osob +
                 ", cena=" + cena +
                 ", dostęp_do_internetu=" + dostęp_do_internetu +
