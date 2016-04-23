@@ -29,7 +29,7 @@ public class Pokoj
     @Override
     public String toString() {
         return "Proponowany pokoj: " +
-                ", ilu_osobowy=" + ilu_osobowy +
+                " ilu_osobowy=" + ilu_osobowy +
                 ", cena=" + cena +
                 ", dostęp_do_internetu=" + dostęp_do_internetu +
                 ", jaki_styl=" + jaki_styl +

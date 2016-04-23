@@ -39,13 +39,26 @@ public class Hotel
         int iterator_recepcjonistow = 0;
         while(! zamowienia.isEmpty())
         {
-            if(iterator_zamowien.hasNext() == false) iterator_zamowien = zamowienia.iterator();
-            Zamowienie rozpatrywane_zamowienie = iterator_zamowien.next();
+            iterator_zamowien = zamowienia.iterator();
+            zamowienia.add(iterator_zamowien.next()); // przenoszę element z początku na koniec
+            iterator_zamowien = zamowienia.iterator();
+            iterator_zamowien.next();
+            iterator_zamowien.remove();
+
+            Zamowienie rozpatrywane_zamowienie = zamowienia.getLast();
             if(this.czy_da_sie_zarezerwować_pokoj_w_podanym_przedziale_czasowym(rozpatrywane_zamowienie, pokoje))
             {
                 if(iterator_recepcjonistow >= recepcjonisci.length) iterator_recepcjonistow = 0;
                 Pokoj wybrany_pokoj_przez_recepcjoniste = recepcjonisci[iterator_recepcjonistow].wybierz_pokoj(rozpatrywane_zamowienie, pokoje);
-                if (rozpatrywane_zamowienie.czy_klient_akceptuje_pokoj(wybrany_pokoj_przez_recepcjoniste) == true)
+                if(wybrany_pokoj_przez_recepcjoniste == null)
+                {
+                    rozpatrywane_zamowienie.zwiększ_licznik();
+                    if(rozpatrywane_zamowienie.czy_osiagnieto_limit_rozpatrywan() == true)
+                    {
+                        zamowienia.removeLast();
+                    }
+                }
+                else if (rozpatrywane_zamowienie.czy_klient_akceptuje_pokoj(wybrany_pokoj_przez_recepcjoniste) == true)
                 {
                     wybrany_pokoj_przez_recepcjoniste.rezerwuj(rozpatrywane_zamowienie.ankieta);
                     System.out.println(recepcjonisci[iterator_recepcjonistow].toString());
@@ -53,14 +66,17 @@ public class Hotel
                     System.out.println(wybrany_pokoj_przez_recepcjoniste.toString());
                     System.out.println(rozpatrywane_zamowienie.klient.toString());
                     System.out.println("tak/nie\n");
+                    zamowienia.removeLast();
                 }
                 else
                 {
                     rozpatrywane_zamowienie.zwiększ_licznik();
-                    if(rozpatrywane_zamowienie.czy_osiagnieto_limit_rozpatrywan() == false) zamowienia.add(rozpatrywane_zamowienie);
+                    if(rozpatrywane_zamowienie.czy_osiagnieto_limit_rozpatrywan() == true)
+                    {
+                        zamowienia.removeLast();
+                    }
                 }
             }
-            iterator_zamowien.remove();
             iterator_recepcjonistow++;
         }
     }
