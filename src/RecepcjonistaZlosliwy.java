@@ -35,7 +35,11 @@ public class RecepcjonistaZlosliwy extends Recepcjonista{
                 }
                 else
                 {
-                    if(spelnionych_wymagan < min_spelnionych_wymagan) najgorszy_pokoj = iterator;
+                    if(spelnionych_wymagan < min_spelnionych_wymagan)
+                    {
+                        najgorszy_pokoj = iterator;
+                        min_spelnionych_wymagan = spelnionych_wymagan;
+                    }
                     else if(spelnionych_wymagan == min_spelnionych_wymagan)
                     {
                         if(pokoje[iterator].cena > pokoje[najgorszy_pokoj].cena) najgorszy_pokoj = iterator;
