@@ -12,8 +12,8 @@ public class KlientPerfekcjonista extends Klient{
     public boolean czy_akceptuje_pokoj(Pokoj pokoj, Ankieta ankieta)
     {
         if(
-                pokoj.ilu_osobowy == ankieta.ile_osob &&
-                pokoj.cena == ankieta.cena &&
+                pokoj.ilu_osobowy >= ankieta.ile_osob &&
+                pokoj.cena <= ankieta.cena &&
                 pokoj.dostep_do_internetu == ankieta.dostep_do_internetu &&
                 pokoj.jaki_styl == ankieta.jaki_styl &&
                 pokoj.jaka_kolorystyka == ankieta.jaka_kolorystyka &&
