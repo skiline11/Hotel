@@ -22,10 +22,10 @@ public class Hotel
         pokoje[11] = new Pokoj(12, 21, 50, false, Styl.nowoczesny, Kolorystyka.jasnozielony, Kierunek.polnoc);
         pokoje[12] = new Pokoj(13, 3, 75, false, Styl.orientalny, Kolorystyka.jasnozielony, Kierunek.polnoc);
 
-        recepcjonisci[0] = new RecepcjonistaLosowy("Krecik", "Grzebcio");
+        //recepcjonisci[0] = new RecepcjonistaLosowy("Krecik", "Grzebcio");
         recepcjonisci[1] = new RecepcjonistaPerfekcjonista("Smok", "Tabaluga");
         recepcjonisci[2] = new RecepcjonistaAproksymacyjny("Pingwin", "Jakub");
-        recepcjonisci[3] = new RecepcjonistaZlosliwy("Bałwan", "Arktos");
+        recepcjonisci[0] = new RecepcjonistaZlosliwy("Bałwan", "Arktos");
     }
 
     private boolean czy_da_sie_zarezerwować_pokoj_w_podanym_przedziale_czasowym(Zamowienie rozpatrywane_zamowienie, Pokoj[] pokoje)
@@ -131,7 +131,7 @@ public class Hotel
     public static void main(String[] args)
     {
         Pokoj[] pokoje = new Pokoj[13];
-        Recepcjonista[] recepcjonisci = new Recepcjonista[4];
+        Recepcjonista[] recepcjonisci = new Recepcjonista[3];
         Hotel hotel = new Hotel(pokoje, recepcjonisci);
         ArrayDeque<Zamowienie> zamowienia = new ArrayDeque<>();
         hotel.stworz_liste_zamowien(zamowienia);
