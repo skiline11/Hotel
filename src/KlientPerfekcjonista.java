@@ -14,7 +14,7 @@ public class KlientPerfekcjonista extends Klient{
         if(
                 pokoj.ilu_osobowy == ankieta.ile_osob &&
                 pokoj.cena == ankieta.cena &&
-                pokoj.dostęp_do_internetu == ankieta.dostęp_do_internetu &&
+                pokoj.dostep_do_internetu == ankieta.dostep_do_internetu &&
                 pokoj.jaki_styl == ankieta.jaki_styl &&
                 pokoj.jaka_kolorystyka == ankieta.jaka_kolorystyka &&
                 pokoj.jaki_kierunek == ankieta.jaki_kierunek

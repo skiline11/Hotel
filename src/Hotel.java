@@ -8,16 +8,24 @@ public class Hotel
 {
     private Hotel(Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
-        pokoje[0] = new Pokoj(0, 1, 100, true, Styl.morski, Kolorystyka.jasnozielony, Kierunek.południe);
-        pokoje[1] = new Pokoj(1, 2, 50, true, Styl.nowoczesny, Kolorystyka.morski, Kierunek.północ);
-        pokoje[2] = new Pokoj(2, 3, 130, true, Styl.orientalny, Kolorystyka.purpurowy, Kierunek.wschód);
-        pokoje[3] = new Pokoj(3, 4, 150, true, Styl.rustykalny, Kolorystyka.seledynowy, Kierunek.zachód);
-        pokoje[4] = new Pokoj(4, 5, 200, true, Styl.secesyjny, Kolorystyka.stalowy, Kierunek.południe);
+        pokoje[0] = new Pokoj(0, 2, 100, true, Styl.morski, Kolorystyka.jasnozielony, Kierunek.poludnie);
+        pokoje[1] = new Pokoj(1, 3, 50, true, Styl.nowoczesny, Kolorystyka.morski, Kierunek.polnoc);
+        pokoje[2] = new Pokoj(3, 5, 130, true, Styl.orientalny, Kolorystyka.purpurowy, Kierunek.wschod);
+        pokoje[3] = new Pokoj(4, 7, 150, true, Styl.rustykalny, Kolorystyka.seledynowy, Kierunek.zachod);
+        pokoje[4] = new Pokoj(5, 9, 200, true, Styl.secesyjny, Kolorystyka.szary, Kierunek.poludnie);
+        pokoje[5] = new Pokoj(6, 11, 100, true, Styl.morski, Kolorystyka.seledynowy, Kierunek.zachod);
+        pokoje[6] = new Pokoj(7, 2, 50, true, Styl.nowoczesny, Kolorystyka.morski, Kierunek.polnoc);
+        pokoje[7] = new Pokoj(8, 30, 130, false, Styl.orientalny, Kolorystyka.stalowy, Kierunek.wschod);
+        pokoje[8] = new Pokoj(9, 40, 150, true, Styl.rustykalny, Kolorystyka.szary, Kierunek.zachod);
+        pokoje[9] = new Pokoj(10, 45, 200, false, Styl.secesyjny, Kolorystyka.purpurowy, Kierunek.poludnie);
+        pokoje[10] = new Pokoj(11, 11, 100, false, Styl.morski, Kolorystyka.morski, Kierunek.wschod);
+        pokoje[11] = new Pokoj(12, 21, 50, false, Styl.nowoczesny, Kolorystyka.jasnozielony, Kierunek.polnoc);
+        pokoje[12] = new Pokoj(13, 3, 75, false, Styl.orientalny, Kolorystyka.jasnozielony, Kierunek.polnoc);
 
-        recepcjonisci[0] = new RecepcjonistaAproksymacyjny("Jan", "Nowak");
-        recepcjonisci[1] = new RecepcjonistaLosowy("Tomasz", "Kowalski");
-        recepcjonisci[2] = new RecepcjonistaPerfekcjonista("Albert", "Einstein");
-        recepcjonisci[3] = new RecepcjonistaZlosliwy("Adolf", "Hitler");
+        recepcjonisci[0] = new RecepcjonistaLosowy("Krecik", "Grzebcio");
+        recepcjonisci[1] = new RecepcjonistaPerfekcjonista("Smok", "Tabaluga");
+        recepcjonisci[2] = new RecepcjonistaAproksymacyjny("Pingwin", "Jakub");
+        recepcjonisci[3] = new RecepcjonistaZlosliwy("Bałwan", "Arktos");
     }
 
     private boolean czy_da_sie_zarezerwować_pokoj_w_podanym_przedziale_czasowym(Zamowienie rozpatrywane_zamowienie, Pokoj[] pokoje)
@@ -35,24 +43,24 @@ public class Hotel
     private void akceptuj(ArrayDeque<Zamowienie> zamowienia, Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
 
-        Iterator<Zamowienie> iterator_zamowien = zamowienia.iterator();
+        Iterator<Zamowienie> iterator_zamowien;
         int iterator_recepcjonistow = 0;
         while(! zamowienia.isEmpty())
         {
             iterator_zamowien = zamowienia.iterator();
-            zamowienia.add(iterator_zamowien.next()); // przenoszę element z początku na koniec
+            zamowienia.add(iterator_zamowien.next()); /* kopiuję element z początku listy, na jej koniec */
             iterator_zamowien = zamowienia.iterator();
             iterator_zamowien.next();
-            iterator_zamowien.remove();
+            iterator_zamowien.remove(); /* usuwam początkowy element listy */
 
-            Zamowienie rozpatrywane_zamowienie = zamowienia.getLast();
-            if(this.czy_da_sie_zarezerwować_pokoj_w_podanym_przedziale_czasowym(rozpatrywane_zamowienie, pokoje))
+            Zamowienie rozpatrywane_zamowienie = zamowienia.getLast(); /* od tej pory pracuję ostatnim elementcie, jeśli będzie taka potrzeba to po prostu go usunę, a jak nie to zostawię */
+            if(czy_da_sie_zarezerwować_pokoj_w_podanym_przedziale_czasowym(rozpatrywane_zamowienie, pokoje))
             {
                 if(iterator_recepcjonistow >= recepcjonisci.length) iterator_recepcjonistow = 0;
                 Pokoj wybrany_pokoj_przez_recepcjoniste = recepcjonisci[iterator_recepcjonistow].wybierz_pokoj(rozpatrywane_zamowienie, pokoje);
                 if(wybrany_pokoj_przez_recepcjoniste == null)
                 {
-                    rozpatrywane_zamowienie.zwiększ_licznik();
+                    rozpatrywane_zamowienie.zwieksz_licznik();
                     if(rozpatrywane_zamowienie.czy_osiagnieto_limit_rozpatrywan() == true)
                     {
                         zamowienia.removeLast();
@@ -70,7 +78,7 @@ public class Hotel
                 }
                 else
                 {
-                    rozpatrywane_zamowienie.zwiększ_licznik();
+                    rozpatrywane_zamowienie.zwieksz_licznik();
                     if(rozpatrywane_zamowienie.czy_osiagnieto_limit_rozpatrywan() == true)
                     {
                         zamowienia.removeLast();
@@ -83,26 +91,31 @@ public class Hotel
 
     private void stworz_liste_zamowien(ArrayDeque<Zamowienie> zamowienia)
     {
-        Klient pan1 = new KlientBudzetowy("Imie1", "Nazwisko1");
-        Ankieta ankieta1 = new Ankieta(1, 1, 1, 100, 1, 100, true, Styl.morski, Kolorystyka.jasnozielony, Kierunek.południe);
+        Klient pan1 = new KlientBudzetowy("Oszczedny", "Felek");
+        Ankieta ankieta1 = new Ankieta(1, 1, 1, 100, 1, 100, true, Styl.morski, Kolorystyka.jasnozielony, Kierunek.poludnie);
         zamowienia.add( new Zamowienie(pan1, ankieta1) );
 
-        Klient pan2 = new KlientPerfekcjonista("Imie2", "Nazwisko2");
-        Ankieta ankieta2 = new Ankieta(1, 2, 3, 100, 2, 50, true, Styl.nowoczesny, Kolorystyka.morski, Kierunek.północ);
+        Klient pan2 = new KlientPerfekcjonista("Mateusz", "Perfekt");
+        Ankieta ankieta2 = new Ankieta(1, 7, 20, 100, 2, 50, true, Styl.nowoczesny, Kolorystyka.morski, Kierunek.polnoc);
         zamowienia.add( new Zamowienie(pan2, ankieta2) );
 
-        Klient pan3 = new KlientPolowiczny("Imie3", "Nazwisko3");
-        Ankieta ankieta3 = new Ankieta(1, 2, 20, 50, 3, 75, true, Styl.orientalny, Kolorystyka.purpurowy, Kierunek.wschód);
+        Klient pan3 = new KlientPolowiczny("Robert", "Przepolowiony");
+        Ankieta ankieta3 = new Ankieta(1, 2, 20, 50, 3, 75, true, Styl.orientalny, Kolorystyka.purpurowy, Kierunek.wschod);
         zamowienia.add( new Zamowienie(pan3, ankieta3) );
 
-        Klient pan4 = new KlientUgodowy("Imie4", "Nazwisko4");
-        Ankieta ankieta4 = new Ankieta(1, 6, 5, 100, 5, 200, true, Styl.rustykalny, Kolorystyka.seledynowy, Kierunek.zachód);
+        Klient pan4 = new KlientUgodowy("Jan", "Baranowski");
+        Ankieta ankieta4 = new Ankieta(1, 6, 5, 100, 5, 200, true, Styl.rustykalny, Kolorystyka.seledynowy, Kierunek.zachod);
         zamowienia.add( new Zamowienie(pan4, ankieta4) );
+
+        Klient pan5 = new KlientWidokowy("Hilary", "Patrzygała");
+        Ankieta ankieta5 = new Ankieta(2, 4, 8, 2, 15, 120, false, Styl.nowoczesny, Kolorystyka.szary, Kierunek.polnoc);
+        zamowienia.add( new Zamowienie(pan5, ankieta5) );
+
     }
 
     public static void main(String[] args)
     {
-        Pokoj[] pokoje = new Pokoj[5];
+        Pokoj[] pokoje = new Pokoj[13];
         Recepcjonista[] recepcjonisci = new Recepcjonista[4];
         Hotel hotel = new Hotel(pokoje, recepcjonisci);
         ArrayDeque<Zamowienie> zamowienia = new ArrayDeque<>();

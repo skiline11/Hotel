@@ -23,7 +23,7 @@ public class RecepcjonistaAproksymacyjny extends Recepcjonista {
                 spelnionych_wymagan = 0;
                 if(pokoje[iterator].ilu_osobowy == ankieta.ile_osob) spelnionych_wymagan++;
                 if(pokoje[iterator].cena == ankieta.cena) spelnionych_wymagan++;
-                if(pokoje[iterator].dostęp_do_internetu == ankieta.dostęp_do_internetu) spelnionych_wymagan++;
+                if(pokoje[iterator].dostep_do_internetu == ankieta.dostep_do_internetu) spelnionych_wymagan++;
                 if(pokoje[iterator].jaki_styl == ankieta.jaki_styl) spelnionych_wymagan++;
                 if(pokoje[iterator].jaka_kolorystyka == ankieta.jaka_kolorystyka) spelnionych_wymagan++;
                 if(pokoje[iterator].jaki_kierunek == ankieta.jaki_kierunek) spelnionych_wymagan++;
