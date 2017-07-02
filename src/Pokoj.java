@@ -12,7 +12,7 @@ public class Pokoj
     public Kolorystyka jaka_kolorystyka;
     public Kierunek jaki_kierunek;
     public boolean dostep_do_internetu;
-    public ArrayDeque<Przedzial_czasowy> zajete_terminy;
+    private ArrayDeque<Przedzial_czasowy> zajete_terminy;
 
     public Pokoj(int numer, int ilu_osobowy, int cena, Styl jaki_styl, Kolorystyka jaka_kolorystyka, Kierunek jaki_kierunek, boolean dostep_do_internetu)
     {

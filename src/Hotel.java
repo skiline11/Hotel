@@ -6,7 +6,7 @@ import java.util.Iterator;
 
 public class Hotel
 {
-    private Hotel(Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
+    public Hotel(Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
         pokoje[0] = new Pokoj(0, 2, 100, Styl.morski, Kolorystyka.jasnozielony, Kierunek.poludnie, true);
         pokoje[1] = new Pokoj(1, 3, 50, Styl.nowoczesny, Kolorystyka.morski, Kierunek.polnoc, true);
@@ -39,7 +39,7 @@ public class Hotel
         return da_sie;
     }
 
-    private void akceptuj(ArrayDeque<Zamowienie> zamowienia, Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
+    public void akceptuj(ArrayDeque<Zamowienie> zamowienia, Pokoj[] pokoje, Recepcjonista[] recepcjonisci)
     {
 
         Iterator<Zamowienie> iterator_zamowien;
@@ -103,7 +103,7 @@ public class Hotel
         }
     }
 
-    private void stworz_liste_zamowien(ArrayDeque<Zamowienie> zamowienia)
+    public void stworz_liste_zamowien(ArrayDeque<Zamowienie> zamowienia)
     {
         Klient pan1 = new KlientBudzetowy("Oszczedny", "Felek");
         Ankieta ankieta1 = new Ankieta(1, 1, 1, 100, 1, 100, Styl.morski, Kolorystyka.jasnozielony, Kierunek.poludnie, true);
@@ -140,15 +140,5 @@ public class Hotel
         Klient pan9 = new KlientPolowiczny("Antek", "Dzielnikowy");
         Ankieta ankieta9 = new Ankieta(1, 2, 10, 10, 12, 75, Styl.rustykalny, Kolorystyka.seledynowy, Kierunek.wschod, true);
         zamowienia.add( new Zamowienie(pan9, ankieta9));
-    }
-
-    public static void main(String[] args)
-    {
-        Pokoj[] pokoje = new Pokoj[13];
-        Recepcjonista[] recepcjonisci = new Recepcjonista[3];
-        Hotel hotel = new Hotel(pokoje, recepcjonisci);
-        ArrayDeque<Zamowienie> zamowienia = new ArrayDeque<>();
-        hotel.stworz_liste_zamowien(zamowienia);
-        hotel.akceptuj(zamowienia, pokoje, recepcjonisci);
     }
 }
